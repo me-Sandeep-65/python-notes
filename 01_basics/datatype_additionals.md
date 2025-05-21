@@ -106,3 +106,36 @@ print(hex(ord('Ä')))  # Output: 0xc4
 | `\u00c4`     | `'Ä'`   | Unicode escape for code point U+00C4  |
 | `\u03A9`     | `'Ω'`   | Greek capital omega (U+03A9)          |
 | `\U0001F600` | `'😀'`  | Full 8-digit Unicode escape for emoji |
+
+# namedtuple
+
+- A named tuple in Python is a special kind of tuple that lets you access elements by name (like attributes), not just by index.
+- It improves code readability and behaves like both a tuple and a lightweight class.
+
+```
+from collections import namedtuple
+
+# Regular tuple
+person = ('Alice', 30)
+print(person[0])  # What is 0?
+
+# Named tuple
+Person = namedtuple('Person', ['name', 'age'])
+person = Person('Alice', 30)
+print(person.name)  # Clear: it's the name
+
+# Still acts like a tuple
+print(person[0])  # Output: 'Alice'
+```
+
+```
+from collections import namedtuple
+
+# Internally it's called 'Rectangle'
+Shape = namedtuple('Rectangle', ['width', 'height'])
+
+r = Shape(5, 10)
+
+print(r)            # Output: Rectangle(width=5, height=10)
+print(type(r))      # Output: <class '__main__.Rectangle'>
+```
